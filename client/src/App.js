@@ -45,8 +45,10 @@ class App extends Component {
     const { companies, activeCompanyId, cacheData, companiesKeys } = this.state;
     return (
       <div className="App">
-        <h2>Companies</h2>
-        <Companies companies={companies} activeCompanyId={activeCompanyId} handleClick={this.handleClick}/>
+        <div>
+          <h2>Companies</h2>
+          <Companies companies={companies} activeCompanyId={activeCompanyId} handleClick={this.handleClick}/>
+        </div>
       <div>
         {(activeCompanyId === null) ? <MainPage/> : <JobBoard data={cacheData[companiesKeys[activeCompanyId]]}/>}
       </div>

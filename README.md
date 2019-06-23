@@ -13,3 +13,8 @@ A user should be able to visit the site, click on a company they're interested i
 - [x] Fetch jobs data from Flask backend & set it up for display
 
 - [x] Refactor the code for better UI & performance
+
+## Demo:
+
+![demo](./demo/blitz.gif)
+

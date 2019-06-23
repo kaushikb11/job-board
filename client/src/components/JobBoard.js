@@ -6,9 +6,11 @@ import '../App.css';
 const columns = [{
   title: 'Role',
   dataIndex: 'title',
+  width: 500
   }, {
   title: 'Company',
   dataIndex: 'company',
+  width: 400
   }, {
   title: 'Location',
   dataIndex: 'location',

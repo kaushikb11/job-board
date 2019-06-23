@@ -29,13 +29,15 @@
 }
 
 .Container button{ 
-  margin-right:16px;
-  font-family: 'Spectral', serif;
+  margin-right: 16px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 550;
 }
 
 .Container button:last-child{
-  margin-right:0px;
-  font-family: 'Spectral', serif;
+  margin-right: 0px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 550;
 }
 
 .table {
