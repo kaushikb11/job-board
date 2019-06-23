@@ -30,13 +30,14 @@ class JobBoard extends Component {
     return (
       <div>
         <div>
-          {data ? <h2>{data.length} open roles</h2> : ''}
+          {data ? <h3 style={{paddingTop:'10px'}}>{data.length} open roles</h3> : ''}
         </div>
         <div className='table'>
           {data ?
           <Table
             columns={columns}
             dataSource={data}
+            pagination={{ pageSize: 50 }} 
             onRow={(row) => ({
               onClick: () => {
                 this.selectRow(row);

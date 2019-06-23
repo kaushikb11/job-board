@@ -19,10 +19,9 @@ class App extends Component {
 
   getJobsDataByCompany = (index=null) => {
     const { companiesKeys, activeCompanyId, cacheData } = this.state;
-    console.log(index)
     const company = (index === null) ? companiesKeys[activeCompanyId] : companiesKeys[index];
     if (cacheData.hasOwnProperty(company)) {
-      this.setState({ data: cacheData[company]})
+      return
     } else {
       fetch(`jobs/${company}`, {
         method: 'GET',
@@ -46,6 +45,7 @@ class App extends Component {
     const { companies, activeCompanyId, cacheData, companiesKeys } = this.state;
     return (
       <div className="App">
+        <h2>Companies</h2>
         <Companies companies={companies} activeCompanyId={activeCompanyId} handleClick={this.handleClick}/>
       <div>
         {(activeCompanyId === null) ? <MainPage/> : <JobBoard data={cacheData[companiesKeys[activeCompanyId]]}/>}

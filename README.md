@@ -12,4 +12,4 @@ A user should be able to visit the site, click on a company they're interested i
 
 - [x] Fetch jobs data from Flask backend & set it up for display
 
-- [ ] Refactor the code for better UI & performance
+- [x] Refactor the code for better UI & performance
