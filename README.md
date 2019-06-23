@@ -10,6 +10,6 @@ A user should be able to visit the site, click on a company they're interested i
 
 - [x] Create UI compenent for the Main Page & Companies as options
 
-- [ ] Fetch jobs data from Flask backend & set it up for display
+- [x] Fetch jobs data from Flask backend & set it up for display
 
 - [ ] Refactor the code for better UI & performance

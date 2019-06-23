@@ -53,6 +53,7 @@ def get_yext_jobs_data():
         job_title = job.span.text
         job_details['title'] = job_title
         job_details['link'] = job.get('href')
+        job_details['company'] = 'Yext'
         job_details['location'] = job.find('span', class_='jobs__post-city').text
         yext_jobs_data.append(job_details)
     return yext_jobs_data
