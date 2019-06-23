@@ -1,11 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  margin-top: 40px;
 }
 
 .App-header {
@@ -30,4 +25,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Container button{ 
+  margin-right:16px;
+}
+
+.Container button:last-child{
+  margin-right:0px;
+}
+
+.text {
+  margin-top: 120px;
+  font-family: 'Eczar', serif;
+  font-size: 80;
 }
