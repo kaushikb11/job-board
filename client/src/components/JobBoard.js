@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
 import { Button } from 'antd';
-import '../App.css';
 
 const columns = [{
   title: 'Role',
@@ -38,16 +37,15 @@ class JobBoard extends Component {
           {data ?
           <Table
             columns={columns}
-            dataSource={data}
-            pagination={{ pageSize: 50 }} 
+            dataSource={data} 
             onRow={(row) => ({
               onClick: () => {
                 this.selectRow(row);
               }
-            })}/> :<Button style={loaderDivStyle} size="large" shape="circle" loading />}
+            })}/> : <Button style={loaderDivStyle} size="large" shape="circle" loading />}
         </div>
       </div>
-    )
+    );
   }
 }
 

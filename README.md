@@ -18,3 +18,11 @@ A user should be able to visit the site, click on a company they're interested i
 
 ![demo](./demo/blitz.gif)
 
+## Future Scope:
+
+- [ ] Location based Filtering
+
+- [ ] Search feature for Job Roles
+
+- [ ] Tags column for Job Roles
+

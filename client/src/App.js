@@ -13,8 +13,8 @@ class App extends Component {
   }
 
   handleClick = async(index) => {
-    await this.setState({ activeCompanyId : index})
-    this.getJobsDataByCompany()
+    await this.setState({ activeCompanyId : index });
+    this.getJobsDataByCompany();
   }
 
   getJobsDataByCompany = (index=null) => {
@@ -38,7 +38,7 @@ class App extends Component {
   componentDidMount() {
     this.state.companiesKeys.forEach((_, index) => {
       this.getJobsDataByCompany(index)
-    })
+    });
   }
 
   render() {
@@ -49,9 +49,9 @@ class App extends Component {
           <h2>Companies</h2>
           <Companies companies={companies} activeCompanyId={activeCompanyId} handleClick={this.handleClick}/>
         </div>
-      <div>
-        {(activeCompanyId === null) ? <MainPage/> : <JobBoard data={cacheData[companiesKeys[activeCompanyId]]}/>}
-      </div>
+        <div>
+          {(activeCompanyId === null) ? <MainPage/> : <JobBoard data={cacheData[companiesKeys[activeCompanyId]]}/>}
+        </div>
       </div>
     );
   }
