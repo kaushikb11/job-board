@@ -1,10 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from time import sleep
 from bs4 import BeautifulSoup
 
 
 def get_soup(url, delay=0):
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument('--no-sandbox') 
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get(url)
     sleep(delay)
     html = driver.page_source
