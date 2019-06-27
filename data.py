@@ -19,8 +19,8 @@ def get_soup(url, delay=0):
 
 
 def get_twilio_jobs_data():
-    twilio_url = 'https://www.twilio.com/company/jobs'
-    twilio_soup = get_soup(twilio_url)
+    TWILIO_URL = 'https://www.twilio.com/company/jobs'
+    twilio_soup = get_soup(TWILIO_URL)
     twilio_jobs_data = []
     for job in twilio_soup.find_all('a', class_='_job'):
         job_details = {}
@@ -34,8 +34,8 @@ def get_twilio_jobs_data():
 
 
 def get_airbnb_jobs_data():
-    airbnb_url = 'https://careers.airbnb.com/#jobs'
-    airbnb_soup = get_soup(airbnb_url)
+    AIRBNB_URL = 'https://careers.airbnb.com/#jobs'
+    airbnb_soup = get_soup(AIRBNB_URL)
     airbnb_jobs_data = []
     query_tag = 'jobs-board__positions__list__item'
     for job in airbnb_soup.find_all('li', class_=query_tag):
@@ -50,8 +50,8 @@ def get_airbnb_jobs_data():
 
 
 def get_yext_jobs_data():
-    yext_url = 'https://www.yext.com/careers/open-positions/'
-    yext_soup = get_soup(yext_url, 3)
+    YEXT_URL = 'https://www.yext.com/careers/open-positions/'
+    yext_soup = get_soup(YEXT_URL, 3)
     yext_jobs_data = []
     for job in yext_soup.find_all('a', class_='jobs__post-item'):
         job_details = {}
@@ -68,4 +68,6 @@ def get_jobs_data(company):
     company_jobs_dict = {'twilio': get_twilio_jobs_data,
      'airbnb': get_airbnb_jobs_data,
      'yext': get_yext_jobs_data}
+    if company not in company_jobs_dict:
+        return None
     return company_jobs_dict[company]()

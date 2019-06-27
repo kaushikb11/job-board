@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
-import { Button } from 'antd';
+import { Table, Button, Input, Select } from 'antd';
+import PropTypes from 'prop-types';
+
 
 const columns = [{
   title: 'Role',
@@ -22,12 +23,30 @@ const loaderDivStyle = {
 
 class JobBoard extends Component {
 
+  state = {
+    query: '',
+    columnQuery: 'title'
+  }
+
   selectRow = (row) => {
     window.open(row.link, '_blank');
   }
 
+  searchText = (text) => {
+    this.setState({ query: text.toLowerCase() })
+  }
+
+  handleChange = (value) => {
+    this.setState({ columnQuery: value, query: '' })
+  }
+
   render() {
-    const { data } = this.props;
+    let { data } = this.props;
+    const { Search } = Input;
+    const { Option } = Select;
+    const { columnQuery, query } = this.state;
+    data = data ? data.filter(job => job[columnQuery].toString()
+      .toLowerCase().includes(query)) : null;
     return (
       <div>
         <div>
@@ -35,6 +54,14 @@ class JobBoard extends Component {
         </div>
         <div className='table'>
           {data ?
+          <div>
+          <Search placeholder="Search" style={{ width: 300, paddingRight: '20px', paddingBottom: '15px' }}
+            onSearch={value => this.searchText(value)} enterButton />
+          <Select defaultValue="title" style={{ width: 120, paddingBottom: '15px' }} onChange={this.handleChange}>
+            <Option value="location">Location</Option>
+            <Option value="title">Title</Option>
+          </Select>
+          <br/>
           <Table
             columns={columns}
             dataSource={data} 
@@ -42,11 +69,15 @@ class JobBoard extends Component {
               onClick: () => {
                 this.selectRow(row);
               }
-            })}/> : <Button style={loaderDivStyle} size="large" shape="circle" loading />}
+            })}/></div>: <Button style={loaderDivStyle} size="large" shape="circle" loading />}
         </div>
       </div>
     );
   }
 }
+
+JobBoard.propTypes = {
+  data: PropTypes.array
+};
 
 export default JobBoard;

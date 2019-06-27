@@ -10,7 +10,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/jobs/<company>")
+@app.route("/jobs/<string:company>")
 def get_jobs_by_company(company):
     jobs_data = get_jobs_data(company)
     return jsonify(jobs_data)
